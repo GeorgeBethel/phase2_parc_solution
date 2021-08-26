@@ -70,45 +70,25 @@ class Lane_follower:
         else:
             pass
 
-        # self.vel_comand.linear.x = 0.3
+        self.vel_comand.linear.x = 1.0
 
-        # if third_quadratLaser > 0.34 and second_quadratLaser > 0.34:
-        #     self.vel_comand.linear.x = 0.3
-        #     self.vel_comand.angular.z = 0.0
+        if third_quadratLaser > 0.34 and second_quadratLaser > 0.34:
+            self.vel_comand.linear.x = 0.3
+            self.vel_comand.angular.z = 0.0
 
-        # elif third_quadratLaser < 0.34 and second_quadratLaser > 0.34:
-        #     self.vel_comand.linear.x = 0.3
-        #     self.vel_comand.angular.z = -0.1
+        elif third_quadratLaser < 0.34 and second_quadratLaser > 0.34:
+            self.vel_comand.linear.x = 0.3
+            self.vel_comand.angular.z = -0.1
 
-        # elif third_quadratLaser > 0.34 and second_quadratLaser < 0.34:
-        #     self.vel_comand.linear.x = 0.2
-        #     self.vel_comand.angular.z = 0.5
+        elif third_quadratLaser > 0.34 and second_quadratLaser < 0.34:
+            self.vel_comand.linear.x = 0.2
+            self.vel_comand.angular.z = 0.5
         
-        # else:
+        else:
 
-        #     self.vel_comand.linear.x = 0.0
-        #     self.vel_comand.angular.z = 0.5
+            self.vel_comand.linear.x = 0.0
+            self.vel_comand.angular.z = 0.5
 
-        
-        # if (pixel_centerLeft > 127 and pixel_centerLeft < 130) and second_quadratLaser > 1.48:
-        #     self.vel_comand.linear.x = 0.0
-        #     self.vel_comand.angular.z = -0.03
-
-        # if pixel_centerLeft >= 158:
-        #     self.vel_comand.linear.x = 0.0
-        #     self.vel_comand.angular.z = -0.05
-
-        # if theta > 2:
-        #     self.vel_comand.linear.x = 1.5
-        #     self.vel_comand.angular.z = 0.03
-
-        # if first_quadratLaser <= 1.5 and (second_quadratLaser > 1.6 and second_quadratLaser < 1.86):
-        #     self.vel_comand.linear.x = 0.0
-        #     self.vel_comand.angular.z = -0.1
-
-        # if x_pos > -12.50:
-        #     self.vel_comand.linear.x = 0.0
-        #     self.vel_comand.angular.z = 0.0
 
         self.cmd_velPub.publish(self.vel_comand)
 
